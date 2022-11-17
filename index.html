@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!---bootstrap cdn for header link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <!--navbar-->
+    <div class="navbar navbar-expand bg-dark navbar-dark">
+
+
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="#"><img id="logo" src="/Quiz Application with Timer/img/white_logo.png" alt="#"></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Study Material</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">GK current Affairs</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Doubts.html">Doubts</a>
+            </li>
+
+            <li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-dark dropdown-toggle text-muted" data-bs-toggle="dropdown">
+                        More
+                    </button>
+                    <ul class="dropdown-menu bg-dark">
+                        <li><a class="dropdown-item text-muted disabled" href="#">FAQ</a></li>
+                        <li><a class="dropdown-item text-muted disabled" href="#">Assignment</a></li>
+                        <li><a class="dropdown-item text-muted" href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <div class="nav-item  p-1">
+                    <input class="mt-1" type="text" placeholder="search">
+                </div>
+            </li>
+
+            <li>
+                <button type="button" class="btn btn-primary m-1">
+                    <i class="bi bi-search"></i>
+                </button>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <!--navbar ends-->
+
+    <!---user input-->
+    <div class="cover">
+        <div class="user">
+            <img id="logo" src="/Quiz Application with Timer/img/black_logo.png" alt="#">
+            <p class="heading">Enter name to start Quiz</p>
+            <span>
+                <input type="text" id="name-el" placeholder="user name"></input>
+                <br>
+                <button class="submit-ele" id="submit-btn" type="button">submit</button>
+            </span>
+            <div class="bar"></div>
+        </div>
+        <!--user input end -->
+
+        <!-- start Quiz button -->
+        <div class="Quiz">
+            <div class="start_btn"><button>Devops</button></div>
+            <div class="java-ele"><button>JAVA</button></div>
+            <div class="css-ele"><button>CSS</button></div>
+            <div class="js-ele"><button>JS</button></div>
+        </div>
+    </div>
+    <!-- start Quiz button end -->
+
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <!--add div  to add username at last result page-->
+        <div class="user_name">
+            <span class="output" id="output-user"></span>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const txt1 = document.getElementById('name-el');
+        const btn1 = document.getElementById('submit-btn');
+        const out1 = document.getElementById('output-user');
+        // adding name after quiz is finished 
+        function addName() {
+            out1.innerHTML = txt1.value;
+        }
+        btn1.addEventListener('click', addName);
+
+    </script>
+
+    <!-- Inside this JavaScript file inserted Questions and Options only -->
+    <script src="js/questions.js"></script>
+
+    <!-- Inside this JavaScript file coded all Quiz Codes of devops and work only for devops button -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
